@@ -1,0 +1,29 @@
+BTCV CT Volumes — Place Files Here
+=====================================
+
+This folder must contain the raw CT image volumes from the BTCV dataset.
+
+Expected files
+--------------
+  img0001.nii
+  img0002.nii
+  ...
+  img0040.nii
+
+File format: NIfTI (.nii). Files with .nii.gz extension are also accepted.
+
+How to place the data
+---------------------
+1. You have already received the BTCV data folder.
+2. Copy ALL img*.nii files into THIS folder:
+       <project_root>/data/imagesTr/
+3. Do NOT rename the files — the code references exact filenames (img0001.nii etc.).
+4. Verify by running:
+       ls data/imagesTr/
+   You should see img0001.nii  img0002.nii  ...  img0040.nii
+
+Note
+----
+This placeholder file can be deleted once the actual data files are in place.
+The data/ directory is excluded from git via .gitignore — data files will not
+be committed to the repository.

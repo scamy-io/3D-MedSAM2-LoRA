@@ -1,0 +1,49 @@
+paths:
+  # ── DATA PATHS ────────────────────────────────────────────────────────────
+  # Place BTCV CT volumes  in: data/imagesTr/img0001.nii ... img0040.nii
+  # Place BTCV label masks in: data/labelsTr/label0001.nii ... label0040.nii
+  # See data/imagesTr/PLACE_DATA_HERE.txt for exact instructions.
+  raw_images:  data/imagesTr
+  raw_labels:  data/labelsTr
+  processed:   data/processed     # auto-created — PNG frames per volume
+  checkpoints: checkpoints        # auto-created — model weights stored here
+
+model:
+  size: tiny
+  cfg:  configs/sam2.1/sam2.1_hiera_t.yaml       # config passed to build_sam2_video_predictor
+  ckpt: checkpoints/sam2.1_hiera_tiny.pt
+  image_size: 1024                # reduce to 512 if training OOMs on 8 GB
+
+preprocess:
+  hu_low:  -150
+  hu_high:  250
+  resample_isotropic: false
+  target_spacing_mm: 1.5
+  min_area_pixels: 5
+  short_memory_slices: 3
+
+organs:                           # BTCV integer label ids
+  spleen:   1
+  liver:    6
+  pancreas: 11
+  # full map: 1=spleen 2=rkid 3=lkid 4=gall 5=eso 6=liver
+  #           7=sto 8=aorta 9=IVC 10=veins 11=pancreas 12=rad 13=lad
+
+train:
+  lr: 1.0e-4
+  rank: 8
+  alpha: 16
+  accum_steps: 8                  # effective batch = micro_batch * accum_steps
+  micro_batch: 2
+  epochs: 20
+  amp: true
+  qv_only: false                  # false=peft qkv; true=custom Q&V-only LoRA
+
+split:
+  val_cases:
+    - img0035
+    - img0036
+    - img0037
+    - img0038
+    - img0039
+    - img0040

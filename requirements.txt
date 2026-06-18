@@ -1,0 +1,27 @@
+# Core deep learning — install PyTorch first (see note below)
+# pip install torch torchvision --index-url https://download.pytorch.org/whl/cu124
+torchvision
+
+# SAM2 — clone then pip install -e
+# git clone https://github.com/facebookresearch/sam2.git external/sam2
+# pip install -e external/sam2
+
+# Medical imaging
+nibabel>=5.0
+monai>=1.3
+SimpleITK
+scipy
+
+# LoRA (Option A only — Option B in lora.py needs no extra dep)
+peft
+
+# Image I/O
+imageio>=2.31
+Pillow>=10.0
+
+# Config & utilities
+pyyaml>=6.0
+tqdm
+einops
+hydra-core
+iopath

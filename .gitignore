@@ -1,0 +1,36 @@
+# Data — too large for git; see data/imagesTr/PLACE_DATA_HERE.txt for setup
+data/imagesTr/*.nii
+data/imagesTr/*.nii.gz
+data/labelsTr/*.nii
+data/labelsTr/*.nii.gz
+data/processed/
+
+# Model checkpoints
+checkpoints/*.pt
+checkpoints/*.pth
+
+# SAM2 source (cloned + installed separately)
+external/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+.venv/
+venv/
+env/
+
+# Outputs
+outputs/
+
+# Editor / OS
+.vscode/
+.idea/
+*.DS_Store
+Thumbs.db
+
+idea.md 
+problem.md
+report.md
+structure.md

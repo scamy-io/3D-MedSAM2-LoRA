@@ -1,0 +1,34 @@
+BTCV Organ Label Masks — Place Files Here
+==========================================
+
+This folder must contain the organ segmentation label files from the BTCV dataset.
+
+Expected files
+--------------
+  label0001.nii
+  label0002.nii
+  ...
+  label0040.nii
+
+File format: NIfTI (.nii). Each voxel value is an integer organ label:
+  0  = background       1  = spleen          2  = right kidney
+  3  = left kidney      4  = gallbladder      5  = esophagus
+  6  = liver            7  = stomach          8  = aorta
+  9  = IVC              10 = portal/splenic vein
+  11 = pancreas         12 = right adrenal    13 = left adrenal
+
+How to place the data
+---------------------
+1. You have already received the BTCV data folder.
+2. Copy ALL label*.nii files into THIS folder:
+       <project_root>/data/labelsTr/
+3. Do NOT rename the files — naming must match: img0001.nii <-> label0001.nii
+4. Verify by running:
+       ls data/labelsTr/
+   You should see label0001.nii  label0002.nii  ...  label0040.nii
+
+Note
+----
+This placeholder file can be deleted once the actual data files are in place.
+The data/ directory is excluded from git via .gitignore — data files will not
+be committed to the repository.
